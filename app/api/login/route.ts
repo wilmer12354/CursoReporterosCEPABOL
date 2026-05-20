@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { saveUserToTurso } from "@/lib/turso";
+import { isNameInSheet } from "@/lib/sheets";
 
 export async function POST(req: Request) {
   const data = await req.json();
@@ -10,6 +11,16 @@ export async function POST(req: Request) {
   }
 
   try {
+    const nameIsValid = await isNameInSheet(name);
+    if (!nameIsValid) {
+      return NextResponse.json(
+        {
+          error: "Primero debes llenar el formulario para poder ingresar al curso."
+        },
+        { status: 400 }
+      );
+    }
+
     const result = await saveUserToTurso(name, age);
     return NextResponse.json({ success: true, userId: result.userId ?? Date.now() });
   } catch (error) {

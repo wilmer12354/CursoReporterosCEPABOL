@@ -62,15 +62,16 @@ export default function HomePage() {
         body: JSON.stringify({ name: trimmedName, age: ageNumber })
       });
 
+      const result = await response.json();
       if (!response.ok) {
-        throw new Error("No se pudo guardar la información.");
+        setFormError(result?.error ?? "No se registró en el form.");
+        return;
       }
 
-      const result = await response.json();
       setUser({ name: trimmedName, age: ageNumber, userId: result.userId ?? Date.now() });
       setSaveMessage("Bienvenido/a. Ya puedes ver los videos y responder las preguntas.");
     } catch (error) {
-      setFormError("Hubo un problema al enviar tus datos. Intenta de nuevo.");
+      setFormError("No se registró en el form. Intenta de nuevo.");
     } finally {
       setIsSubmitting(false);
     }
