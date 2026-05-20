@@ -1,0 +1,49 @@
+# Node
+node_modules/
+.pnp/
+.pnp.js
+.pnpm-debug.log*
+
+# Next.js build output
+.next/
+.out/
+dist/
+
+# Environment variables
+.env
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Coverage and cache
+coverage/
+.cache/
+
+# Local DB or backups
+*.sqlite
+*.db
+*.sql
+
+# Misc
+coverage/
+/build/
+
+# Ignore Next.js export dir
+out/
