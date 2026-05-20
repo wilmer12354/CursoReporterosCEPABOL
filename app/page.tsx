@@ -113,13 +113,13 @@ export default function HomePage() {
           <div className="hero-header">
             <p className="eyebrow">Curso Reporteros CEPABOL</p>
             <h1>Ingresa tu nombre completo y edad para entrar</h1>
-            <p className="hero-copy">Accede al curso, mira los videos y responde las preguntas sin necesidad de scroll extra.</p>
+            <p className="hero-copy">Accede al curso, mira los videos y responde las preguntas.</p>
           </div>
 
           <form className="login-form" onSubmit={handleLogin}>
             <label>
               Nombre completo
-              <input value={name} onChange={(event) => setName(event.target.value)} placeholder="Ej. Ana Pérez" />
+              <input value={name} onChange={(event) => setName(event.target.value)} placeholder="Ej. Ana Luisa Marca Tapia" />
             </label>
             <label>
               Edad
