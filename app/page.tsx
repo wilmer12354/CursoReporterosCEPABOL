@@ -30,7 +30,7 @@ export default function HomePage() {
   const [watchedVideos, setWatchedVideos] = useState<number[]>([]);
   const [completed, setCompleted] = useState(false);
   const [saveMessage, setSaveMessage] = useState("");
-  const [showIndigena, setShowIndigena] = useState(false);
+
 
 
   async function handleLogin(event: FormEvent<HTMLFormElement>) {
@@ -98,32 +98,7 @@ export default function HomePage() {
 
   return (
     <main className="page-shell">
-      <div className="indigena-pill">
-        <button
-          type="button"
-          className="indigena-pill-btn"
-          onClick={() => setShowIndigena((v) => !v)}
-          aria-expanded={showIndigena}
-        >
-          <span className="indigena-dot" />
-          <span className="indigena-label">Justicia Indígena</span>
-        </button>
-        {showIndigena && (
-          <div className="indigena-popover">
-            <p className="indigena-popover-text">
-              ¿Te gustaría aprender sobre la Justicia Indígena? Explora nuestro curso.
-            </p>
-            <a
-              href="https://cursoscepabol.indigena.bo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="indigena-popover-link"
-            >
-              Ir al curso
-            </a>
-          </div>
-        )}
-      </div>
+
       {!user ? (
         <section className="hero-card hero-layout">
 
@@ -144,10 +119,10 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <h1>PROGRAMA DE FORMACIÓN PARA REPORTEROS.</h1>
+              <h1>CURSO DE CAPACITACIÓN "REPORTEROS POPULARES"</h1>
 
               <p className="hero-copy">
-                Accede al material audiovisual seleccionado para tu capacitación como reportero.
+                Programa de formación gratuito, dirigido a líderes de organizaciones sociales, indígenas y activistas.
               </p>
             </div>
 
@@ -175,10 +150,14 @@ export default function HomePage() {
 
           {/* DERECHA */}
           <div className="hero-image">
-            <img
-              src="/1770729202965.webp"
-              alt="Reporteros"
-            />
+            <span className="hero-image-label">CURSO: JUSTICIA INDÍGENA, MÁS INFORMACIÓN 👇 </span>
+            <br />
+            <a href="https://cursoscepabol.indigena.bo" target="_blank" rel="noopener noreferrer">
+              <img
+                src="/fondo_jioc.webp"
+                alt="Reporteros"
+              />
+            </a>
           </div>
 
         </section>
@@ -186,8 +165,8 @@ export default function HomePage() {
         <section className="course-shell">
           <div className="course-header">
             <p className="eyebrow">Bienvenido/a, {user.name}</p>
-            <h1>FORMACIÓN PARA REPORTEROS CEPABOL</h1>
-            <p className="hero-copy">Mira los videos dentro de esta página y márcalos como vistos justo al acabar de ver el video.</p>
+            <h1>CURSO DE CAPACITACIÓN "REPORTEROS POPULARES"</h1>
+            <p className="hero-copy">Mira los videos dentro de esta página y márcalos como vistos justo al acabar de ver el material audiovisual.</p>
             <p>
               <strong>Nota:</strong> Al acabar puedes solicitar tu certificado y/o credencial de CEPABOL contactando al número 71539769.
             </p>
