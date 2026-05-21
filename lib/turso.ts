@@ -17,15 +17,26 @@ const db = createClient({
   tls: true
 });
 
-export async function saveUserToTurso(name: string, age: number): Promise<TursoResult> {
+export async function saveUserToTurso(name: string): Promise<TursoResult> {
   if (!TURSO_API_BASE_URL || !TURSO_API_KEY) {
     console.warn("Turso variables de entorno no configuradas. Se usa ID temporal.");
     return { userId: Math.floor(Math.random() * 900000) + 100000 };
   }
 
+  // Check if user already exists
+  const existingUser = await db.execute({
+    sql: "SELECT id FROM users WHERE name = ? LIMIT 1",
+    args: [name]
+  });
+
+  if (existingUser.rows.length > 0) {
+    return { userId: Number(existingUser.rows[0].id) };
+  }
+
+  // Insert new user if not exists
   const result = await db.execute({
     sql: "INSERT INTO users (name, age, created_at) VALUES (?, ?, ?)",
-    args: [name, age, new Date().toISOString()]
+    args: [name, 0, new Date().toISOString()]
   });
 
   const userId = result.lastInsertRowid ? Number(result.lastInsertRowid) : Date.now();
@@ -41,5 +52,38 @@ export async function saveAnswerToTurso(userId: number, questionId: number, answ
   await db.execute({
     sql: "INSERT INTO answers (user_id, question_id, answer, created_at) VALUES (?, ?, ?, ?)",
     args: [userId, questionId, answer, new Date().toISOString()]
+  });
+}
+
+export async function getWatchedVideosFromTurso(userId: number): Promise<number[]> {
+  if (!TURSO_API_BASE_URL || !TURSO_API_KEY) {
+    return [];
+  }
+
+  const result = await db.execute({
+    sql: "SELECT watched_videos FROM user_progress WHERE user_id = ? LIMIT 1",
+    args: [userId]
+  });
+
+  if (result.rows.length === 0) {
+    return [];
+  }
+
+  const raw = result.rows[0].watched_videos;
+  if (typeof raw === "string") {
+    return JSON.parse(raw);
+  }
+  return [];
+}
+
+export async function saveWatchedVideosToTurso(userId: number, watchedVideos: number[]) {
+  if (!TURSO_API_BASE_URL || !TURSO_API_KEY) {
+    console.warn("Turso variables de entorno no configuradas. Progreso no guardado en Turso.");
+    return null;
+  }
+
+  await db.execute({
+    sql: "INSERT INTO user_progress (user_id, watched_videos, updated_at) VALUES (?, ?, ?) ON CONFLICT(user_id) DO UPDATE SET watched_videos = ?, updated_at = ?",
+    args: [userId, JSON.stringify(watchedVideos), new Date().toISOString(), JSON.stringify(watchedVideos), new Date().toISOString()]
   });
 }

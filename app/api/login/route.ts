@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
-import { saveUserToTurso } from "@/lib/turso";
+import { saveUserToTurso, getWatchedVideosFromTurso } from "@/lib/turso";
 import { isNameInSheet } from "@/lib/sheets";
 
 export async function POST(req: Request) {
   const data = await req.json();
   const { name, age } = data;
 
-  if (!name || !age) {
+  if (!name) {
     return NextResponse.json({ error: "Faltan nombre o edad" }, { status: 400 });
   }
 
@@ -21,8 +21,10 @@ export async function POST(req: Request) {
       );
     }
 
-    const result = await saveUserToTurso(name, age);
-    return NextResponse.json({ success: true, userId: result.userId ?? Date.now() });
+    const result = await saveUserToTurso(name);
+    const userId = result.userId ?? Date.now();
+    const watchedVideos = await getWatchedVideosFromTurso(userId);
+    return NextResponse.json({ success: true, userId, watchedVideos });
   } catch (error) {
     console.error("/api/login error:", error);
     return NextResponse.json(
