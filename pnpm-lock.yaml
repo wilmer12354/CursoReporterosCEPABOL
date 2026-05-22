@@ -20,6 +20,9 @@ importers:
       react-dom:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
+      sweetalert2:
+        specifier: ^11.26.24
+        version: 11.26.24
     devDependencies:
       '@types/node':
         specifier: 20.14.2
@@ -276,6 +279,9 @@ packages:
       babel-plugin-macros:
         optional: true
 
+  sweetalert2@11.26.24:
+    resolution: {integrity: sha512-SLgukW4wicewpW5VOukSXY5Z6DL/z7HCOK2ODSjmQPiSphCN8gJAmh9npoceXOtBRNoDN0xIz+zHYthtfiHmjg==}
+
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
@@ -512,6 +518,8 @@ snapshots:
     dependencies:
       client-only: 0.0.1
       react: 18.3.1
+
+  sweetalert2@11.26.24: {}
 
   tslib@2.8.1: {}
 

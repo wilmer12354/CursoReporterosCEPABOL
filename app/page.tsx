@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import Image from "next/image";
+import Swal from "sweetalert2";
 
 const videos = [
   { title: "ÉTICA PERIODISTICA", youtubeId: "SWfr2NsHwl8" },
@@ -39,7 +40,7 @@ export default function HomePage() {
     const trimmedName = name.trim();
 
     if (!trimmedName) {
-      setFormError("Ingresa un nombre completo.");
+      Swal.fire({ icon: "warning", title: "Campo vacío", text: "Ingresa un nombre completo." });
       return;
     }
 
@@ -53,7 +54,7 @@ export default function HomePage() {
 
       const result = await response.json();
       if (!response.ok) {
-        setFormError(result?.error ?? "No se registró en el form.");
+        Swal.fire({ icon: "error", title: "Acceso denegado", text: result?.error ?? "No se registró en el form." });
         return;
       }
 
@@ -127,7 +128,7 @@ export default function HomePage() {
             </div>
 
             <form className="login-form" onSubmit={handleLogin}>
-              <label>
+              <label className="label-nombre">
                 Nombre completo
 
                 <input

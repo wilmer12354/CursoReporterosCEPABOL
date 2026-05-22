@@ -91,6 +91,11 @@ h1 {
   font-size: 0.98rem;
 }
 
+.label-nombre {
+  font-size: 20px;
+  font-weight: 700;
+}
+
 .login-form input {
   width: 100%;
   border: 1px solid rgba(148, 163, 184, 0.25);
@@ -337,10 +342,6 @@ h1 {
 @media (max-width: 900px){
   .hero-layout{
     grid-template-columns:1fr;
-  }
-
-  .hero-image{
-    order:-1;
   }
 }
 
