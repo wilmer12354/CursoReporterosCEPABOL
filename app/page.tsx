@@ -32,6 +32,7 @@ export default function HomePage() {
   const [saveMessage, setSaveMessage] = useState("");
   const [showQuizForTopic, setShowQuizForTopic] = useState<number | null>(null);
   const [quizAnswers, setQuizAnswers] = useState<Record<number, number>>({});
+  const [quizStep, setQuizStep] = useState(0);
   const [quizSubmittedTopics, setQuizSubmittedTopics] = useState<number[]>([]);
   const [topicScores, setTopicScores] = useState<Record<number, { score: number; total: number }>>({});
   const completed = quizSubmittedTopics.length === videos.length;
@@ -88,6 +89,7 @@ export default function HomePage() {
     if (quizSubmittedTopics.includes(activeVideo)) return;
     setShowQuizForTopic(activeVideo);
     setQuizAnswers({});
+    setQuizStep(0);
   }
 
   function handleAnswerSelect(questionId: number, optionIndex: number) {
@@ -116,6 +118,7 @@ export default function HomePage() {
       });
       setQuizAnswers({});
       setShowQuizForTopic(null);
+      setQuizStep(0);
       return;
     }
 
@@ -280,35 +283,57 @@ export default function HomePage() {
               {showQuizForTopic !== null && !quizSubmittedTopics.includes(showQuizForTopic) && (
                 <div className="quiz-section">
                   <h3>Cuestionario: {videos[showQuizForTopic].title}</h3>
-                  <p>Responde correctamente al menos 2 de 3 preguntas para avanzar.</p>
-                  {questionsData
-                    .find((t) => t.topicIndex === showQuizForTopic)
-                    ?.questions.map((q) => (
-                      <div key={q.id} className="quiz-question">
-                        <p className="quiz-question-text">{q.question}</p>
-                        <div className="quiz-options">
-                          {q.options.map((opt, oi) => (
-                            <label key={oi} className="quiz-option-label">
-                              <input
-                                type="radio"
-                                name={`q_${q.id}`}
-                                checked={quizAnswers[q.id] === oi}
-                                onChange={() => handleAnswerSelect(q.id, oi)}
-                              />
-                              <span>{opt}</span>
-                            </label>
-                          ))}
+                  <p className="quiz-step-indicator">Pregunta {quizStep + 1} de 3</p>
+                  {(() => {
+                    const topic = questionsData.find((t) => t.topicIndex === showQuizForTopic);
+                    if (!topic) return null;
+                    const q = topic.questions[quizStep];
+                    const isAnswered = quizAnswers[q.id] !== undefined;
+                    return (
+                      <>
+                        <div key={q.id} className="quiz-question">
+                          <p className="quiz-question-text">{q.question}</p>
+                          <div className="quiz-options">
+                            {q.options.map((opt, oi) => (
+                              <label key={oi} className="quiz-option-label">
+                                <input
+                                  type="radio"
+                                  name={`q_${q.id}`}
+                                  checked={quizAnswers[q.id] === oi}
+                                  onChange={() => handleAnswerSelect(q.id, oi)}
+                                />
+                                <span>{opt}</span>
+                              </label>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    ))}
-                  <button
-                    type="button"
-                    className="quiz-submit-btn"
-                    onClick={handleSubmitQuiz}
-                    disabled={!showQuizForTopic || questionsData.find((t) => t.topicIndex === showQuizForTopic)?.questions.some((q) => quizAnswers[q.id] === undefined)}
-                  >
-                    Enviar respuestas
-                  </button>
+                        <div className="quiz-nav">
+                          {quizStep < 2 ? (
+                            <button
+                              type="button"
+                              className="quiz-next-btn"
+                              onClick={() => setQuizStep(quizStep + 1)}
+                              disabled={!isAnswered}
+                            >
+                              Siguiente
+                            </button>
+                          ) : (
+                            <button
+                              type="button"
+                              className="quiz-submit-btn"
+                              onClick={(e) => {
+                                e.currentTarget.disabled = true;
+                                handleSubmitQuiz();
+                              }}
+                              disabled={!isAnswered}
+                            >
+                              Enviar respuestas
+                            </button>
+                          )}
+                        </div>
+                      </>
+                    );
+                  })()}
                 </div>
               )}
 

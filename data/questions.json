@@ -5,34 +5,34 @@
     "questions": [
       {
         "id": 1,
-        "question": "¿Cuál es el principio fundamental del periodismo ético?",
+        "question": "De acuerdo con la conferencia de Javier Darío Restrepo, ¿cómo se debe interpretar o mirar un código de ética en el periodismo?",
         "options": [
-          "Buscar la verdad y reportarla",
-          "Obtener la mayor cantidad de clics",
-          "Publicar primero y verificar después",
-          "Dar preferencia a fuentes oficiales"
+          "Como una ley impositiva del gobierno",
+          "Como un compendio rígido de fórmulas matemáticas",
+          "Como una guía o brújula que solo sabe señalar el norte",
+          "Como un manual que resuelve de forma exacta cada situación concreta"
         ],
-        "correctIndex": 0
+        "correctIndex": 2
       },
       {
         "id": 2,
-        "question": "¿Qué debe hacer un periodista ante un conflicto de intereses?",
+        "question": "¿Por qué afirma Javier Darío Restrepo que es un peligro ético y 'una tarea heroica' para un periodista ganar un mal salario?",
         "options": [
-          "Ocultarlo para no perder credibilidad",
-          "Declinarlo o informarlo a su audiencia",
-          "Ignorarlo y seguir reportando",
-          "Renunciar inmediatamente"
+          "Porque no tendrá dinero para comprar una buena cámara de video",
+          "Porque un periodista con mal salario se vuelve un profesional sobornable por políticos o ricachones",
+          "Porque los periódicos quiebran inmediatamente si pagan mal",
+          "Porque el periodista se ve obligado a dejar el oficio para volverse un payaso profesional"
         ],
         "correctIndex": 1
       },
       {
         "id": 3,
-        "question": "¿Cuál de los siguientes es un principio del Código de Ética Periodística?",
+        "question": "Según Sócrates y la analogía citada en el video, ¿cuál es el verdadero papel del periodista en la sociedad?",
         "options": [
-          "Sensacionalismo para atraer audiencia",
-          "Confidencialidad absoluta de las fuentes",
-          "Justificar medios por el fin",
-          "Difundir información no verificada"
+          "Actuar como una nana encargada de divertir y entretener a las personas",
+          "Funcionar como el tábano de la sociedad que la obliga a pensar y mantiene en movimiento al caballo grande",
+          "Ser un payaso profesional para hacer reír a los gobernantes de turno",
+          "Informar únicamente noticias positivas para evitar la inconformidad"
         ],
         "correctIndex": 1
       }
@@ -44,36 +44,36 @@
     "questions": [
       {
         "id": 4,
-        "question": "¿Qué es el 'encuadre' en el lenguaje audiovisual?",
+        "question": "Etimológicamente, ¿de qué palabra proviene la palabra 'imagen' y cuál es su significado original?",
         "options": [
-          "El marco que limita la imagen que captura la cámara",
-          "El color de la iluminación",
-          "La duración del plano",
-          "El sonido ambiente de la escena"
+          "Proviene de iconicidad y significa 'realidad pura'",
+          "Proviene de imago y quiere decir 'copia' o 'sombra'",
+          "Proviene de técnica y significa 'representación material'",
+          "Proviene de polisemia y significa 'pensamiento gráfico'"
         ],
-        "correctIndex": 0
+        "correctIndex": 1
       },
       {
         "id": 5,
-        "question": "¿Qué transmite un plano picado (cámara desde arriba)?",
+        "question": "¿Qué tipo de plano describe una toma de un elemento de la naturaleza como el mar o el cielo donde no se llega a determinar un final debido a su tendencia al infinito?",
         "options": [
-          "Poder y superioridad del sujeto",
-          "Vulnerabilidad o pequeñez del sujeto",
-          "Igualdad entre sujeto y espectador",
-          "Alegría y entusiasmo"
+          "Plano general corto",
+          "Plano medio largo",
+          "Gran plano general",
+          "Primer plano"
         ],
-        "correctIndex": 1
+        "correctIndex": 2
       },
       {
         "id": 6,
-        "question": "¿Cuál es la función del 'plano detalle'?",
+        "question": "¿Qué ejemplo se utiliza en el video para ilustrar el concepto de 'imagen de no imagen'?",
         "options": [
-          "Mostrar el paisaje completo",
-          "Enfatizar un elemento pequeño y significativo",
-          "Mostrar a una persona de cuerpo entero",
-          "Capturar una conversación entre dos personas"
+          "Un profesor de anatomía dibujando un órgano en la pizarra para que sus alumnos lo copien",
+          "Una persona tomándose una fotografía con su DNI o documento de identidad",
+          "Una señorita que al leer la carta o menú de un restaurante inmediatamente se imagina los potajes en su cerebro",
+          "Un camarógrafo editando una toma en Photoshop o Illustrator"
         ],
-        "correctIndex": 1
+        "correctIndex": 2
       }
     ]
   },
@@ -83,73 +83,73 @@
     "questions": [
       {
         "id": 7,
-        "question": "¿Qué estructura sigue una noticia periodística clásica?",
+        "question": "Según las investigaciones de la Universidad Carnegie Mellon citadas por Sabrina Mathison, ¿cuál frase logró aumentar las tasas de registro en un 20%?",
         "options": [
-          "Introducción, desarrollo, conclusión",
-          "Pirámide invertida: información más importante al inicio",
-          "Crónica cronológica de principio a fin",
-          "Planteamiento, nudo, desenlace"
+          "Una tarifa de 5 dólares",
+          "Un descuento del 20%",
+          "Una pequeña tarifa de 5 dólares",
+          "Recibe nuestro producto gratis"
         ],
-        "correctIndex": 1
+        "correctIndex": 2
       },
       {
         "id": 8,
-        "question": "¿Qué debe contener el primer párrafo o lead de una noticia?",
+        "question": "¿Cuál es el porcentaje recomendado de densidad de palabras clave en un blog para evitar que los motores de búsqueda penalicen el contenido?",
         "options": [
-          "Una opinión del periodista",
-          "Publicidad del medio",
-          "Las 5W: qué, quién, cuándo, dónde, por qué",
-          "Un resumen de toda la nota"
+          "Aproximadamente el 1% (10 palabras clave por cada 1000 palabras)",
+          "Exactamente el 10% (100 palabras clave por cada 1000 palabras)",
+          "Al menos el 5% distribuido en los subtítulos largos",
+          "Debe ser del 0% para favorecer el idioma nativo del lector"
         ],
-        "correctIndex": 2
+        "correctIndex": 0
       },
       {
         "id": 9,
-        "question": "¿Cuál es la regla de oro de la redacción periodística?",
+        "question": "¿Cuáles son las tres partes principales que se deben incluir de forma correcta en las meta etiquetas de un contenido digital?",
         "options": [
-          "Usar un vocabulario complejo y técnico",
-          "Escribir oraciones largas y detalladas",
-          "Ser claro, conciso y objetivo",
-          "Incluir opiniones personales"
+          "Introducción larga, Jerga técnica y Formato corto",
+          "Título, Meta descripción y Palabra clave",
+          "Imágenes, Infografías y Flechas visuales",
+          "Tasa de rebote, Backlinks y Nombre del blog"
         ],
-        "correctIndex": 2
+        "correctIndex": 1
       }
     ]
   },
   {
     "topicIndex": 3,
-    "topicName": "FOTOGRAFÍA",
+    "topicName": "FOTOGRAFIA",
     "questions": [
       {
         "id": 10,
-        "question": "¿Qué es la 'regla de los tercios' en fotografía?",
+        "question": "¿Qué sucede cuando una fotografía se encuentra en un estado 'subexpuesto'?",
         "options": [
-          "Dividir la imagen en 3 partes iguales verticales",
-          "Dividir el encuadre en 9 secciones con 2 líneas horizontales y 2 verticales, y ubicar el sujeto en las intersecciones",
-          "Usar 3 colores principales en la foto",
-          "Tomar 3 fotos del mismo sujeto"
+          "La imagen cuenta con demasiada luz y los rostros parecen fantasmas",
+          "La fotografía sale básicamente oscura",
+          "El fondo está perfectamente enfocado y el sujeto borroso",
+          "Los colores se tornan automáticamente de un estilo vintage"
         ],
         "correctIndex": 1
       },
       {
         "id": 11,
-        "question": "¿Qué efecto produce una velocidad de obturación rápida?",
+        "question": "Dentro del triángulo de exposición, ¿cuál es el elemento que se define como la sensibilidad del sensor?",
         "options": [
-          "Congela el movimiento",
-          "Crea efecto de desenfoque motion blur",
-          "Aumenta el ruido en la imagen",
-          "Oscurece toda la fotografía"
+          "La velocidad de obturación",
+          "El diafragma",
+          "El ISO",
+          "El enfoque digital"
         ],
-        "correctIndex": 0
+        "correctIndex": 2
       },
       {
         "id": 12,
-        "question": "¿Qué es la 'profundidad de campo'?",
+        "question": "Si un fotógrafo desea que una persona se vea más alta, alargada y esbelta con su celular, ¿qué tipo de ángulo compositivo se aconseja utilizar?",
         "options": [
-          "El nivel de zoom del lente",
-          "La distancia entre la cámara y el sujeto",
-          "La zona de la imagen que aparece nítida",
-          "El tamaño del sensor de la cámara"
+          "Ángulo cenital",
+          "Ángulo picado",
+          "Ángulo contrapicado",
+          "Ángulo normal"
         ],
         "correctIndex": 2
       }
@@ -157,40 +157,40 @@
   },
   {
     "topicIndex": 4,
-    "topicName": "CAMAROGRAFÍA",
+    "topicName": "CAMAROGRAFIA",
     "questions": [
       {
         "id": 13,
-        "question": "¿Qué es el 'balance de blancos' en una cámara?",
+        "question": "¿Cuál es el encuadre o plano que va desde la cintura hasta la cabeza y suele utilizarse para tomas más personales donde se identifica el rostro sin obviar las manos?",
         "options": [
-          "Ajustar el brillo de la pantalla",
-          "Corregir los colores para que el blanco se vea natural según la iluminación",
-          "Equilibrar el volumen del micrófono",
-          "Nivelar el trípode"
+          "Full open shot (Plano entero)",
+          "Medium shot (Plano medio)",
+          "Close up (Primer plano)",
+          "Extreme long shot (Plano general extremo)"
         ],
         "correctIndex": 1
       },
       {
         "id": 14,
-        "question": "¿Cuál es la función del 'trípode' en camarografía?",
+        "question": "¿Por qué razones históricas el plano que encuadra al personaje cortando la toma por las pistolas se conoce popularmente como plano americano (American shot)?",
         "options": [
-          "Aumentar la duración de la batería",
-          "Mejorar la calidad del audio",
-          "Mantener la cámara estable y evitar movimientos bruscos",
-          "Ampliar el almacenamiento"
+          "Porque fue creado por la televisión de noticias en Nueva York en los años 50",
+          "Porque fue impuesto en los westerns entre los años 30 y 40 para que se vieran las armas de los vaqueros",
+          "Porque sirve exclusivamente para encuadrar autopistas y centros comerciales en Estados Unidos",
+          "Debido a que muestra únicamente un dedo jalando de un gatillo o un ojo soltando una lágrima"
         ],
-        "correctIndex": 2
+        "correctIndex": 1
       },
       {
         "id": 15,
-        "question": "¿Qué es un 'plano secuencia'?",
+        "question": "Como regla o manual de utilización para un camarógrafo profesional, ¿qué consejo se da al realizar un plano medio?",
         "options": [
-          "Varios planos editados rápidamente",
-          "Una escena grabada en una sola toma sin cortes",
-          "Un plano que dura menos de 1 segundo",
-          "Una secuencia de fotos fijas"
+          "Que siempre se debe encender el flash de forma directa al rostro",
+          "Colocar la cámara en un ángulo nadir para evitar ver la papada",
+          "No cortar las extremidades por las partes medias (como rodillas o brazos) porque puede parecer que el personaje no las tiene",
+          "Grabar de forma continua durante al menos dos horas para postproducción"
         ],
-        "correctIndex": 1
+        "correctIndex": 2
       }
     ]
   },
@@ -200,76 +200,80 @@
     "questions": [
       {
         "id": 16,
-        "question": "¿Cuál es el mejor formato de video para contenido vertical en redes sociales?",
+        "question": "¿Cuáles son las tres patas o claves fundamentales que el autor señala como necesarias para crecer en plataformas digitales y redes sociales?",
         "options": [
-          "16:9 (horizontal)",
-          "4:3 (cuadrado)",
-          "9:16 (vertical)",
-          "21:9 (cinemascope)"
-        ],
-        "correctIndex": 2
-      },
-      {
-        "id": 17,
-        "question": "¿Qué significa 'engagement' en redes sociales?",
-        "options": [
-          "Número de seguidores",
-          "Nivel de interacción que genera una publicación (me gusta, comentarios, compartidos)",
-          "La cantidad de veces que se imprime una publicación",
-          "El tiempo que tarda en cargar un video"
+          "Dinero, Herramientas caras y Equipos de televisión",
+          "Constancia, Dedicación y Trabajo",
+          "Suerte, Algoritmos ocultos y Polémicas diarias",
+          "Audio profesional, Viajes y Edición en computadoras"
         ],
         "correctIndex": 1
       },
       {
-        "id": 18,
-        "question": "¿Cuál es la mejor práctica para verificar información antes de compartirla en redes?",
+        "id": 17,
+        "question": "En el ecosistema de contenidos digitales de formato corto en video, ¿cuál es la plataforma recomendada por el autor para lograr una viralización más rápida?",
         "options": [
-          "Compartir primero y borrar si es falsa",
-          "Confiar en cualquier fuente con muchos seguidores",
-          "Cruzar la información con al menos 2 fuentes confiables",
-          "Solo compartir si tiene imágenes impactantes"
+          "YouTube Shorts de más de un minuto",
+          "Facebook Watch clásico",
+          "TikTok",
+          "Los blogs autogestivos de texto plano"
         ],
         "correctIndex": 2
+      },
+      {
+        "id": 18,
+        "question": "Revelando el secreto del negocio digital, ¿por qué el registro y uso de redes sociales como YouTube, TikTok o Instagram es gratuito?",
+        "options": [
+          "Porque son mantenidas por fundaciones de periodismo tradicional",
+          "Porque el usuario es el producto y ofrece su tiempo de retención para que las plataformas vendan publicidades",
+          "Debido a que la ley de libertad de expresión obliga a que no exista ningún cobro de internet",
+          "Porque los teléfonos de gama alta ya cubren el costo de las aplicaciones"
+        ],
+        "correctIndex": 1
+        
       }
     ]
   },
   {
     "topicIndex": 6,
-    "topicName": "TRANSMISIÓN EN VIVO",
+    "topicName": "TRANSMISION EN VIVO",
     "questions": [
       {
         "id": 19,
-        "question": "¿Qué equipo es esencial para una transmisión en vivo de calidad?",
+        "question": "En la estructura general propuesta para un Live, ¿por qué es fundamental el primer paso de 'interacción' antes de entregar la información del tema?",
         "options": [
-          "Solo el teléfono celular",
-          "Conexión a internet estable, cámara y micrófono",
-          "Un drone",
-          "Un estudio de televisión completo"
+          "Para poder vender un producto directamente usando un link de pago",
+          "Para dar tiempo a que las personas se conecten y lean las notificaciones, evitando empezar en un desierto",
+          "Para configurar el balance de blancos y los planos medios de la cámara del computador",
+          "Con el propósito de crear un plano holandés interactivo con la audiencia"
         ],
         "correctIndex": 1
       },
       {
         "id": 20,
-        "question": "¿Qué es el 'delay' en una transmisión en vivo?",
+        "question": "¿Qué característica indispensable deben tener las soluciones y el contenido que se entrega en una transmisión en vivo para generar una enorme percepción de valor?",
         "options": [
-          "La calidad del video",
-          "El retraso controlado entre la imagen real y lo que ve el espectador",
-          "La duración total de la transmisión",
-          "El número de espectadores simultáneos"
+          "Deben ser teorías existenciales largas de índole espiritual",
+          "Tienen que ser prácticas e inmediatamente aplicables en el día a día de la persona",
+          "Deben durar exactamente dos horas continuas sin interrupciones",
+          "Tienen que enfocarse en guiar a la persona a comprar un curso costoso de inmediato"
         ],
         "correctIndex": 1
       },
       {
         "id": 21,
-        "question": "¿Cómo se recomienda interactuar con la audiencia durante un vivo?",
+        "question": "Según los consejos estratégicos del video, ¿qué acción NO se debe realizar directamente en una transmisión en vivo?",
         "options": [
-          "Ignorar los comentarios para no distraerse",
-          "Leer y responder preguntas de los espectadores en el momento",
-          "Grabar el video y responder después",
-          "Eliminar todos los comentarios negativos"
+          "Interactuar en medio de cada paso con los comentarios del algoritmo",
+          "Saludar a las personas conocidas que se van conectando a la transmisión",
+          "Vender directamente tus productos y servicios (las transmisiones son para agregar valor y crear comunidad)",
+          "Mantener una duración ideal de entre 15 y 30 minutos"
         ],
-        "correctIndex": 1
+        "correctIndex": 2
       }
     ]
   }
 ]
+
+
+
