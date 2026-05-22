@@ -218,7 +218,6 @@ export default function HomePage() {
           <div className="course-header">
             <p className="eyebrow">Bienvenido/a, {user.name}</p>
             <h1>CURSO DE CAPACITACIÓN "REPORTEROS POPULARES"</h1>
-            <p className="hero-copy">Mira los videos dentro de esta página y presiona "Listo para mi examen" al acabar de ver el material audiovisual.</p>
             <p>
               <strong>Nota:</strong> Al acabar puedes solicitar tu certificado y/o credencial de CEPABOL contactando al número 71539769.
             </p>

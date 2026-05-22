@@ -19,9 +19,9 @@ input {
 
 .page-shell {
   min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 32px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
 .hero-card,
@@ -31,7 +31,7 @@ input {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 32px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
-  padding: 10px;
+  padding: 5px;
 }
 
 .hero-header,
@@ -144,13 +144,17 @@ h1 {
   gap: 28px;
   align-items: start;
 }
+.course-grid > :first-child {
+  margin-top: 85px;
+}
 
 .video-card,
 .questions-card {
   background: rgba(15, 23, 42, 0.9);
   border: 1px solid rgba(148, 163, 184, 0.12);
   border-radius: 28px;
-  padding: 24px;
+  padding: 20px;
+
 }
 
 .video-top {
