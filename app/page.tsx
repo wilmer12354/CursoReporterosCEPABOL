@@ -29,13 +29,12 @@ export default function HomePage() {
   const [formError, setFormError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeVideo, setActiveVideo] = useState(0);
-  const [watchedVideos, setWatchedVideos] = useState<number[]>([]);
-  const [completed, setCompleted] = useState(false);
   const [saveMessage, setSaveMessage] = useState("");
   const [showQuizForTopic, setShowQuizForTopic] = useState<number | null>(null);
   const [quizAnswers, setQuizAnswers] = useState<Record<number, number>>({});
   const [quizSubmittedTopics, setQuizSubmittedTopics] = useState<number[]>([]);
   const [topicScores, setTopicScores] = useState<Record<number, { score: number; total: number }>>({});
+  const completed = quizSubmittedTopics.length === videos.length;
 
   async function handleLogin(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -62,11 +61,8 @@ export default function HomePage() {
       }
 
       const userId = result.userId ?? Date.now();
-      const watched = Array.isArray(result.watchedVideos) ? result.watchedVideos : [];
       setUser({ name: trimmedName, age: 0, userId });
-      setWatchedVideos(watched);
-      setCompleted(watched.length === videos.length);
-      setSaveMessage("Bienvenido/a. Ya puedes ver los videos y marcarlos como vistos.");
+      setSaveMessage("Bienvenido/a. Ya puedes ver los videos.");
 
       const scoresRes = await fetch(`/api/submit-score?userId=${userId}`);
       if (scoresRes.ok) {
@@ -87,32 +83,11 @@ export default function HomePage() {
     }
   }
 
-  async function toggleWatched(videoIndex: number) {
+  function handleReadyForExam() {
     if (!user) return;
-    if (watchedVideos.includes(videoIndex)) return;
-
-    setIsSubmitting(true);
-    try {
-      const newWatchedVideos = [...watchedVideos, videoIndex];
-
-      await fetch("/api/submit-answer", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          userId: user.userId,
-          watchedVideos: newWatchedVideos
-        })
-      });
-
-      setWatchedVideos(newWatchedVideos);
-      setCompleted(newWatchedVideos.length === videos.length);
-      setShowQuizForTopic(videoIndex);
-      setQuizAnswers({});
-    } catch (error) {
-      setFormError("No se pudo guardar tu progreso. Intenta de nuevo.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    if (quizSubmittedTopics.includes(activeVideo)) return;
+    setShowQuizForTopic(activeVideo);
+    setQuizAnswers({});
   }
 
   function handleAnswerSelect(questionId: number, optionIndex: number) {
@@ -132,16 +107,15 @@ export default function HomePage() {
     }
     const total = topic.questions.length;
 
-    if (correct < total) {
+    if (correct < 2) {
       Swal.fire({
         icon: "error",
-        title: "Alguna(s) respuesta(s) incorrecta(s)",
-        text: `Obtuviste ${correct} de ${total}. Vuelve a ver el video y responde nuevamente.`,
+        title: "Respuestas insuficientes",
+        text: `Obtuviste ${correct} de ${total}. Necesitas al menos 2 correctas. Vuelve a ver el video y responde nuevamente.`,
         confirmButtonText: "Reintentar"
       });
       setQuizAnswers({});
       setShowQuizForTopic(null);
-      setActiveVideo(showQuizForTopic);
       return;
     }
 
@@ -160,6 +134,11 @@ export default function HomePage() {
     setTopicScores((prev) => ({ ...prev, [showQuizForTopic]: { score: correct, total } }));
     setQuizSubmittedTopics((prev) => [...prev, showQuizForTopic]);
     setShowQuizForTopic(null);
+
+    const nextVideo = showQuizForTopic + 1;
+    if (nextVideo < videos.length) {
+      setActiveVideo(nextVideo);
+    }
 
     Swal.fire({
       icon: "success",
@@ -239,7 +218,7 @@ export default function HomePage() {
           <div className="course-header">
             <p className="eyebrow">Bienvenido/a, {user.name}</p>
             <h1>CURSO DE CAPACITACIÓN "REPORTEROS POPULARES"</h1>
-            <p className="hero-copy">Mira los videos dentro de esta página y márcalos como vistos justo al acabar de ver el material audiovisual.</p>
+            <p className="hero-copy">Mira los videos dentro de esta página y presiona "Listo para mi examen" al acabar de ver el material audiovisual.</p>
             <p>
               <strong>Nota:</strong> Al acabar puedes solicitar tu certificado y/o credencial de CEPABOL contactando al número 71539769.
             </p>
@@ -250,16 +229,20 @@ export default function HomePage() {
               <div className="video-top">
                 <span>{videos[activeVideo].title}</span>
                 <div className="video-tabs">
-                  {videos.map((video, index) => (
-                    <button
-                      key={video.youtubeId}
-                      type="button"
-                      className={index === activeVideo ? "video-tab active" : "video-tab"}
-                      onClick={() => setActiveVideo(index)}
-                    >
-                      {index + 1}
-                    </button>
-                  ))}
+                  {videos.map((video, index) => {
+                    const isUnlocked = index === 0 || quizSubmittedTopics.includes(index - 1);
+                    return (
+                      <button
+                        key={video.youtubeId}
+                        type="button"
+                        className={`video-tab${index === activeVideo ? " active" : ""}${!isUnlocked ? " locked" : ""}`}
+                        onClick={() => isUnlocked && setActiveVideo(index)}
+                        disabled={!isUnlocked}
+                      >
+                        {index + 1}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -275,33 +258,30 @@ export default function HomePage() {
 
             <div className="questions-card">
               <div className="question-header">
-                <span>Progreso: {watchedVideos.length} de {videos.length} videos vistos</span>
-                <h2>Marca los videos como vistos</h2>
+                <span>Progreso: {quizSubmittedTopics.length} de {videos.length} videos completados</span>
+                <h2>Avance del curso</h2>
               </div>
 
-              <div className="options-list">
-                {videos.map((video, index) => (
-                  <label key={video.youtubeId} className="video-checkbox-label">
-                    <input
-                      type="checkbox"
-                      checked={watchedVideos.includes(index)}
-                      onChange={() => toggleWatched(index)}
-                      disabled={isSubmitting || index !== activeVideo || watchedVideos.includes(index)}
-                    />
-                    <span className={watchedVideos.includes(index) ? "video-title watched" : "video-title"}>
-                      {index + 1}. {video.title}
-                      {index !== activeVideo && !watchedVideos.includes(index) && (
-                        <span className="video-hint"> (mira este video para marcarlo)</span>
-                      )}
-                    </span>
-                  </label>
-                ))}
-              </div>
+              {showQuizForTopic === null && !quizSubmittedTopics.includes(activeVideo) && (
+                <div className="ready-section">
+                  <p>Después de ver el video, presiona el botón para responder las preguntas.</p>
+                  <button type="button" className="ready-btn" onClick={handleReadyForExam}>
+                    Listo para mi examen
+                  </button>
+                  <p className="quiz-info">Necesitas al menos 2 respuestas correctas para avanzar al siguiente video.</p>
+                </div>
+              )}
+
+              {quizSubmittedTopics.includes(activeVideo) && showQuizForTopic === null && (
+                <div className="completed-section">
+                  <p>Video completado. Pasa al siguiente video.</p>
+                </div>
+              )}
 
               {showQuizForTopic !== null && !quizSubmittedTopics.includes(showQuizForTopic) && (
                 <div className="quiz-section">
                   <h3>Cuestionario: {videos[showQuizForTopic].title}</h3>
-                  <p>Responde correctamente las 3 preguntas para avanzar.</p>
+                  <p>Responde correctamente al menos 2 de 3 preguntas para avanzar.</p>
                   {questionsData
                     .find((t) => t.topicIndex === showQuizForTopic)
                     ?.questions.map((q) => (

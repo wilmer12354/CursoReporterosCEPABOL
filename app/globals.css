@@ -527,3 +527,63 @@ h1 {
   font-weight: 700;
   font-size: 1rem;
 }
+
+.ready-section {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 18px;
+  background: rgba(56, 189, 248, 0.06);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  text-align: center;
+}
+
+.ready-section p {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0 0 16px;
+}
+
+.ready-btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #22c55e, #38bdf8);
+  color: #020617;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.ready-btn:hover {
+  transform: translateY(-1px);
+}
+
+.quiz-info {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 12px;
+}
+
+.video-tab.locked {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: rgba(148, 163, 184, 0.1);
+}
+
+.completed-section {
+  margin-top: 20px;
+  padding: 16px 20px;
+  border-radius: 18px;
+  background: rgba(74, 222, 128, 0.06);
+  border: 1px solid rgba(74, 222, 128, 0.15);
+  text-align: center;
+}
+
+.completed-section p {
+  margin: 0;
+  color: #86efac;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
