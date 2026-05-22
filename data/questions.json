@@ -1,0 +1,275 @@
+[
+  {
+    "topicIndex": 0,
+    "topicName": "ÉTICA PERIODISTICA",
+    "questions": [
+      {
+        "id": 1,
+        "question": "¿Cuál es el principio fundamental del periodismo ético?",
+        "options": [
+          "Buscar la verdad y reportarla",
+          "Obtener la mayor cantidad de clics",
+          "Publicar primero y verificar después",
+          "Dar preferencia a fuentes oficiales"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": 2,
+        "question": "¿Qué debe hacer un periodista ante un conflicto de intereses?",
+        "options": [
+          "Ocultarlo para no perder credibilidad",
+          "Declinarlo o informarlo a su audiencia",
+          "Ignorarlo y seguir reportando",
+          "Renunciar inmediatamente"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": 3,
+        "question": "¿Cuál de los siguientes es un principio del Código de Ética Periodística?",
+        "options": [
+          "Sensacionalismo para atraer audiencia",
+          "Confidencialidad absoluta de las fuentes",
+          "Justificar medios por el fin",
+          "Difundir información no verificada"
+        ],
+        "correctIndex": 1
+      }
+    ]
+  },
+  {
+    "topicIndex": 1,
+    "topicName": "LENGUAJE DE LA IMAGEN",
+    "questions": [
+      {
+        "id": 4,
+        "question": "¿Qué es el 'encuadre' en el lenguaje audiovisual?",
+        "options": [
+          "El marco que limita la imagen que captura la cámara",
+          "El color de la iluminación",
+          "La duración del plano",
+          "El sonido ambiente de la escena"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": 5,
+        "question": "¿Qué transmite un plano picado (cámara desde arriba)?",
+        "options": [
+          "Poder y superioridad del sujeto",
+          "Vulnerabilidad o pequeñez del sujeto",
+          "Igualdad entre sujeto y espectador",
+          "Alegría y entusiasmo"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": 6,
+        "question": "¿Cuál es la función del 'plano detalle'?",
+        "options": [
+          "Mostrar el paisaje completo",
+          "Enfatizar un elemento pequeño y significativo",
+          "Mostrar a una persona de cuerpo entero",
+          "Capturar una conversación entre dos personas"
+        ],
+        "correctIndex": 1
+      }
+    ]
+  },
+  {
+    "topicIndex": 2,
+    "topicName": "REDACCIÓN",
+    "questions": [
+      {
+        "id": 7,
+        "question": "¿Qué estructura sigue una noticia periodística clásica?",
+        "options": [
+          "Introducción, desarrollo, conclusión",
+          "Pirámide invertida: información más importante al inicio",
+          "Crónica cronológica de principio a fin",
+          "Planteamiento, nudo, desenlace"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": 8,
+        "question": "¿Qué debe contener el primer párrafo o lead de una noticia?",
+        "options": [
+          "Una opinión del periodista",
+          "Publicidad del medio",
+          "Las 5W: qué, quién, cuándo, dónde, por qué",
+          "Un resumen de toda la nota"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": 9,
+        "question": "¿Cuál es la regla de oro de la redacción periodística?",
+        "options": [
+          "Usar un vocabulario complejo y técnico",
+          "Escribir oraciones largas y detalladas",
+          "Ser claro, conciso y objetivo",
+          "Incluir opiniones personales"
+        ],
+        "correctIndex": 2
+      }
+    ]
+  },
+  {
+    "topicIndex": 3,
+    "topicName": "FOTOGRAFÍA",
+    "questions": [
+      {
+        "id": 10,
+        "question": "¿Qué es la 'regla de los tercios' en fotografía?",
+        "options": [
+          "Dividir la imagen en 3 partes iguales verticales",
+          "Dividir el encuadre en 9 secciones con 2 líneas horizontales y 2 verticales, y ubicar el sujeto en las intersecciones",
+          "Usar 3 colores principales en la foto",
+          "Tomar 3 fotos del mismo sujeto"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": 11,
+        "question": "¿Qué efecto produce una velocidad de obturación rápida?",
+        "options": [
+          "Congela el movimiento",
+          "Crea efecto de desenfoque motion blur",
+          "Aumenta el ruido en la imagen",
+          "Oscurece toda la fotografía"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": 12,
+        "question": "¿Qué es la 'profundidad de campo'?",
+        "options": [
+          "El nivel de zoom del lente",
+          "La distancia entre la cámara y el sujeto",
+          "La zona de la imagen que aparece nítida",
+          "El tamaño del sensor de la cámara"
+        ],
+        "correctIndex": 2
+      }
+    ]
+  },
+  {
+    "topicIndex": 4,
+    "topicName": "CAMAROGRAFÍA",
+    "questions": [
+      {
+        "id": 13,
+        "question": "¿Qué es el 'balance de blancos' en una cámara?",
+        "options": [
+          "Ajustar el brillo de la pantalla",
+          "Corregir los colores para que el blanco se vea natural según la iluminación",
+          "Equilibrar el volumen del micrófono",
+          "Nivelar el trípode"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": 14,
+        "question": "¿Cuál es la función del 'trípode' en camarografía?",
+        "options": [
+          "Aumentar la duración de la batería",
+          "Mejorar la calidad del audio",
+          "Mantener la cámara estable y evitar movimientos bruscos",
+          "Ampliar el almacenamiento"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": 15,
+        "question": "¿Qué es un 'plano secuencia'?",
+        "options": [
+          "Varios planos editados rápidamente",
+          "Una escena grabada en una sola toma sin cortes",
+          "Un plano que dura menos de 1 segundo",
+          "Una secuencia de fotos fijas"
+        ],
+        "correctIndex": 1
+      }
+    ]
+  },
+  {
+    "topicIndex": 5,
+    "topicName": "MANEJO DE REDES SOCIALES",
+    "questions": [
+      {
+        "id": 16,
+        "question": "¿Cuál es el mejor formato de video para contenido vertical en redes sociales?",
+        "options": [
+          "16:9 (horizontal)",
+          "4:3 (cuadrado)",
+          "9:16 (vertical)",
+          "21:9 (cinemascope)"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": 17,
+        "question": "¿Qué significa 'engagement' en redes sociales?",
+        "options": [
+          "Número de seguidores",
+          "Nivel de interacción que genera una publicación (me gusta, comentarios, compartidos)",
+          "La cantidad de veces que se imprime una publicación",
+          "El tiempo que tarda en cargar un video"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": 18,
+        "question": "¿Cuál es la mejor práctica para verificar información antes de compartirla en redes?",
+        "options": [
+          "Compartir primero y borrar si es falsa",
+          "Confiar en cualquier fuente con muchos seguidores",
+          "Cruzar la información con al menos 2 fuentes confiables",
+          "Solo compartir si tiene imágenes impactantes"
+        ],
+        "correctIndex": 2
+      }
+    ]
+  },
+  {
+    "topicIndex": 6,
+    "topicName": "TRANSMISIÓN EN VIVO",
+    "questions": [
+      {
+        "id": 19,
+        "question": "¿Qué equipo es esencial para una transmisión en vivo de calidad?",
+        "options": [
+          "Solo el teléfono celular",
+          "Conexión a internet estable, cámara y micrófono",
+          "Un drone",
+          "Un estudio de televisión completo"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": 20,
+        "question": "¿Qué es el 'delay' en una transmisión en vivo?",
+        "options": [
+          "La calidad del video",
+          "El retraso controlado entre la imagen real y lo que ve el espectador",
+          "La duración total de la transmisión",
+          "El número de espectadores simultáneos"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": 21,
+        "question": "¿Cómo se recomienda interactuar con la audiencia durante un vivo?",
+        "options": [
+          "Ignorar los comentarios para no distraerse",
+          "Leer y responder preguntas de los espectadores en el momento",
+          "Grabar el video y responder después",
+          "Eliminar todos los comentarios negativos"
+        ],
+        "correctIndex": 1
+      }
+    ]
+  }
+]

@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import Image from "next/image";
 import Swal from "sweetalert2";
+import questionsData from "@/data/questions.json";
 
 const videos = [
   { title: "ÉTICA PERIODISTICA", youtubeId: "SWfr2NsHwl8" },
@@ -31,8 +32,10 @@ export default function HomePage() {
   const [watchedVideos, setWatchedVideos] = useState<number[]>([]);
   const [completed, setCompleted] = useState(false);
   const [saveMessage, setSaveMessage] = useState("");
-
-
+  const [showQuizForTopic, setShowQuizForTopic] = useState<number | null>(null);
+  const [quizAnswers, setQuizAnswers] = useState<Record<number, number>>({});
+  const [quizSubmittedTopics, setQuizSubmittedTopics] = useState<number[]>([]);
+  const [topicScores, setTopicScores] = useState<Record<number, { score: number; total: number }>>({});
 
   async function handleLogin(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -64,6 +67,19 @@ export default function HomePage() {
       setWatchedVideos(watched);
       setCompleted(watched.length === videos.length);
       setSaveMessage("Bienvenido/a. Ya puedes ver los videos y marcarlos como vistos.");
+
+      const scoresRes = await fetch(`/api/submit-score?userId=${userId}`);
+      if (scoresRes.ok) {
+        const scoresData = await scoresRes.json();
+        const scoresMap: Record<number, { score: number; total: number }> = {};
+        const submitted: number[] = [];
+        for (const s of scoresData.scores) {
+          scoresMap[s.topicIndex] = { score: s.score, total: s.total };
+          submitted.push(s.topicIndex);
+        }
+        setTopicScores(scoresMap);
+        setQuizSubmittedTopics(submitted);
+      }
     } catch (error) {
       setFormError("No se registró en el form. Intenta de nuevo.");
     } finally {
@@ -90,11 +106,67 @@ export default function HomePage() {
 
       setWatchedVideos(newWatchedVideos);
       setCompleted(newWatchedVideos.length === videos.length);
+      setShowQuizForTopic(videoIndex);
+      setQuizAnswers({});
     } catch (error) {
       setFormError("No se pudo guardar tu progreso. Intenta de nuevo.");
     } finally {
       setIsSubmitting(false);
     }
+  }
+
+  function handleAnswerSelect(questionId: number, optionIndex: number) {
+    setQuizAnswers((prev) => ({ ...prev, [questionId]: optionIndex }));
+  }
+
+  async function handleSubmitQuiz() {
+    if (showQuizForTopic === null || !user) return;
+    const topic = questionsData.find((t) => t.topicIndex === showQuizForTopic);
+    if (!topic) return;
+
+    let correct = 0;
+    for (const q of topic.questions) {
+      if (quizAnswers[q.id] === q.correctIndex) {
+        correct++;
+      }
+    }
+    const total = topic.questions.length;
+
+    if (correct < total) {
+      Swal.fire({
+        icon: "error",
+        title: "Alguna(s) respuesta(s) incorrecta(s)",
+        text: `Obtuviste ${correct} de ${total}. Vuelve a ver el video y responde nuevamente.`,
+        confirmButtonText: "Reintentar"
+      });
+      setQuizAnswers({});
+      setShowQuizForTopic(null);
+      setActiveVideo(showQuizForTopic);
+      return;
+    }
+
+    await fetch("/api/submit-score", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        userId: user.userId,
+        topicIndex: showQuizForTopic,
+        topicName: topic.topicName,
+        score: correct,
+        total
+      })
+    });
+
+    setTopicScores((prev) => ({ ...prev, [showQuizForTopic]: { score: correct, total } }));
+    setQuizSubmittedTopics((prev) => [...prev, showQuizForTopic]);
+    setShowQuizForTopic(null);
+
+    Swal.fire({
+      icon: "success",
+      title: "¡Respuestas correctas!",
+      text: `Obtuviste ${correct} de ${total} en "${topic.topicName}".`,
+      confirmButtonText: "Continuar"
+    });
   }
 
   return (
@@ -225,6 +297,50 @@ export default function HomePage() {
                   </label>
                 ))}
               </div>
+
+              {showQuizForTopic !== null && !quizSubmittedTopics.includes(showQuizForTopic) && (
+                <div className="quiz-section">
+                  <h3>Cuestionario: {videos[showQuizForTopic].title}</h3>
+                  <p>Responde correctamente las 3 preguntas para avanzar.</p>
+                  {questionsData
+                    .find((t) => t.topicIndex === showQuizForTopic)
+                    ?.questions.map((q) => (
+                      <div key={q.id} className="quiz-question">
+                        <p className="quiz-question-text">{q.question}</p>
+                        <div className="quiz-options">
+                          {q.options.map((opt, oi) => (
+                            <label key={oi} className="quiz-option-label">
+                              <input
+                                type="radio"
+                                name={`q_${q.id}`}
+                                checked={quizAnswers[q.id] === oi}
+                                onChange={() => handleAnswerSelect(q.id, oi)}
+                              />
+                              <span>{opt}</span>
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  <button
+                    type="button"
+                    className="quiz-submit-btn"
+                    onClick={handleSubmitQuiz}
+                    disabled={!showQuizForTopic || questionsData.find((t) => t.topicIndex === showQuizForTopic)?.questions.some((q) => quizAnswers[q.id] === undefined)}
+                  >
+                    Enviar respuestas
+                  </button>
+                </div>
+              )}
+
+              {quizSubmittedTopics.map((ti) => (
+                topicScores[ti] ? (
+                  <div key={ti} className="quiz-score-box">
+                    <span className="quiz-score-topic">{videos[ti].title}:</span>{" "}
+                    <span className="quiz-score-result">{topicScores[ti].score}/{topicScores[ti].total}</span>
+                  </div>
+                ) : null
+              ))}
 
               {completed ? (
                 <div className="completion-box">

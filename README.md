@@ -37,6 +37,16 @@ Página de curso creada con Next.js que solicita nombre completo y edad, muestra
      answer TEXT NOT NULL,
      created_at TEXT NOT NULL
    );
+
+   CREATE TABLE topic_scores (
+     id INTEGER PRIMARY KEY AUTOINCREMENT,
+     user_id INTEGER NOT NULL,
+     topic_index INTEGER NOT NULL,
+     topic_name TEXT NOT NULL,
+     score INTEGER NOT NULL,
+     total INTEGER NOT NULL,
+     created_at TEXT NOT NULL
+   );
    ```
 
 3. Exporta las variables de entorno necesarias en `.env.local`:
@@ -73,3 +83,6 @@ Página de curso creada con Next.js que solicita nombre completo y edad, muestra
 - `app/globals.css` - estilos globales.
 - `app/api/login/route.ts` - ruta API para guardar nombre y edad.
 - `app/api/submit-answer/route.ts` - ruta API para guardar respuestas.
+- `app/api/submit-score/route.ts` - ruta API para guardar notas de los cuestionarios.
+- `data/questions.json` - preguntas de selección múltiple para cada tema (3 por tema).
+- `lib/turso.ts` - funciones para `topic_scores` (guardar y obtener notas por tema).
