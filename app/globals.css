@@ -346,6 +346,20 @@ h1 {
   .hero-layout{
     grid-template-columns:1fr;
   }
+
+  .hide-desktop {
+    display: flex;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 901px) {
+  .hide-desktop {
+    display: none;
+  }
 }
 
 .indigena-pill {
@@ -599,6 +613,59 @@ h1 {
   font-size: 0.8rem;
   color: #64748b;
   margin-top: 12px;
+}
+
+.whatsapp-cta {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border-radius: 18px;
+  background: rgba(74, 222, 128, 0.06);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.whatsapp-cta-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.whatsapp-cta-text {
+  flex: 1;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.5;
+  min-width: 140px;
+}
+
+.whatsapp-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  background: #25D366;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.whatsapp-cta-link:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.whatsapp-cta-link svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 
 .video-tab.locked {
